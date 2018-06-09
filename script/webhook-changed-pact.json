@@ -1,0 +1,21 @@
+{
+  "events": [{
+    "name": "contract_content_changed"
+  }],
+  "request": {
+    "method": "POST",
+    "url": "https://api.travis-ci.org/repo/pact-foundation%2Fanimal-service/requests",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Travis-API-Version": "3",
+      "Authorization": "token TOKEN"
+    },
+    "body": {
+      "request": {
+        "message": "Triggered by changed pact for version ${pactbroker.consumerVersionNumber}",
+        "branch":"master"
+      }
+    }
+  }
+}
