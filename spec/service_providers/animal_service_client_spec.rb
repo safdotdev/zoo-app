@@ -20,7 +20,7 @@ module ZooApp
             will_respond_with(
               status: 200,
               headers: {'Content-Type' => 'application/json;charset=utf-8'},
-              body: {name: 'Mary'}
+              body: {name: Pact.like('Mary')}
             )
         end
 

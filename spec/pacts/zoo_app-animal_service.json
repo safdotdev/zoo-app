@@ -23,6 +23,11 @@
         },
         "body": {
           "name": "Mary"
+        },
+        "matchingRules": {
+          "$.body.name": {
+            "match": "type"
+          }
         }
       }
     },
