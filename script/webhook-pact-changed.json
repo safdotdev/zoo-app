@@ -13,7 +13,7 @@
     },
     "body": {
       "request": {
-        "message": "Triggered by changed pact for version ${pactbroker.consumerVersionNumber}",
+        "message": "Triggered by changed pact for ${pactbroker.consumerName} version ${pactbroker.consumerVersionNumber}",
         "branch":"master"
       }
     }

@@ -1,0 +1,21 @@
+{
+  "events": [
+    {
+      "name": "provider_verification_published"
+    }
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://api.github.com/repos/pact-foundation/zoo-app/statuses/${pactbroker.consumerVersionNumber}",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "state": "success",
+      "description": "Pact tests",
+      "context": "${pactbroker.providerName}"
+    },
+    "username": "bethesque",
+    "password": "PASSWORD"
+  }
+}
