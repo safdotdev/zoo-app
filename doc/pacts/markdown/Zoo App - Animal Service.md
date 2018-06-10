@@ -29,7 +29,7 @@ Animal Service will respond with:
     "Content-Type": "application/json;charset=utf-8"
   },
   "body": {
-    "name": "Jim"
+    "name": "James"
   }
 }
 ```
