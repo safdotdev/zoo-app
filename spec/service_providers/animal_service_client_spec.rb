@@ -20,12 +20,12 @@ module ZooApp
             will_respond_with(
               status: 200,
               headers: {'Content-Type' => 'application/json;charset=utf-8'},
-              body: {name: Pact.like('Mary')}
+              body: {name: Pact.like('Jim')}
             )
         end
 
         it "returns the alligator" do
-          expect(AnimalServiceClient.find_alligator_by_name("Mary")).to eq ZooApp::Animals::Alligator.new(name: 'Mary')
+          expect(AnimalServiceClient.find_alligator_by_name("Mary")).to eq ZooApp::Animals::Alligator.new(name: 'Jim')
         end
 
       end
