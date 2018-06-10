@@ -1,6 +1,9 @@
 {
   "events": [
     {
+      "name": "contract_content_changed"
+    },
+    {
       "name": "provider_verification_published"
     }
   ],
@@ -11,9 +14,10 @@
       "Content-Type": "application/json"
     },
     "body": {
-      "state": "success",
-      "description": "Pact tests",
-      "context": "${pactbroker.providerName}"
+      "state": "${pactbroker.githubVerificationStatus}",
+      "description": "Pact Verification Tests",
+      "context": "${pactbroker.providerName} ${pactbroker.providerVersionTags}",
+      "target_url": "${pactbroker.verificationResultUrl}"
     },
     "username": "bethesque",
     "password": "PASSWORD"

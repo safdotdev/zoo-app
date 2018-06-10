@@ -13,4 +13,11 @@ PactBroker::Client::PublicationTask.new do | task |
   task.pact_broker_basic_auth =  { username: "dXfltyFMgNOFZAxr8io9wJ37iUpY42M", password: "O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1"}
 end
 
+PactBroker::Client::PublicationTask.new(:local) do | task |
+  require 'zoo_app/version'
+  task.consumer_version = `git rev-parse --verify HEAD`.strip
+  task.tags = [ `git rev-parse --abbrev-ref HEAD`.strip ]
+  task.pact_broker_base_url = "http://localhost:9292"
+end
+
 task :default => :spec
