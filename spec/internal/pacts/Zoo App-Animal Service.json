@@ -1,0 +1,128 @@
+{
+  "consumer": {
+    "name": "Zoo App"
+  },
+  "interactions": [
+    {
+      "description": "http: a request for an alligator",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "an error occurs retrieving an alligator"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": [
+            "application/json"
+          ]
+        },
+        "method": "GET",
+        "path": "/alligators/Mary"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "error": "Argh!!!"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 500
+      },
+      "transport": "http",
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "http: a request for an alligator",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "there is an alligator named Mary"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": [
+            "application/json"
+          ]
+        },
+        "method": "GET",
+        "path": "/alligators/Mary"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "name": "Johnny"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "transport": "http",
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "http: a request for an alligator",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "there is not an alligator named Mary"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": [
+            "application/json"
+          ]
+        },
+        "method": "GET",
+        "path": "/alligators/Mary"
+      },
+      "response": {
+        "status": 404
+      },
+      "transport": "http",
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.22",
+      "mockserver": "1.2.9",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    },
+    "sbmt-pact": {
+      "pact-ffi": "0.4.22"
+    }
+  },
+  "provider": {
+    "name": "Animal Service"
+  }
+}
