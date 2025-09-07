@@ -5,12 +5,12 @@ $LOAD_PATH << './lib'
 
 RSpec::Core::RakeTask.new(:spec)
 
-RSpec::Core::RakeTask.new('pact:spec') do |task|
+RSpec::Core::RakeTask.new('pact:v2:spec') do |task|
   task.pattern = 'spec/pact/providers/**/*_spec.rb'
   task.rspec_opts = ['-t pact']
 end
 
-RSpec::Core::RakeTask.new('pact:v1:spec') do |task|
+RSpec::Core::RakeTask.new('pact:spec') do |task|
   task.pattern = 'spec/service_providers/*_spec.rb'
   task.rspec_opts = ['-t pact']
 end
