@@ -14,11 +14,11 @@ module ZooApp
         before do
           animal_service.given("there is an alligator named Mary").
             upon_receiving("a request for an alligator").with(
-              :get,
-              '/alligators/Mary',
+              method: :get,
+              path: '/alligators/Mary',
               headers: {'Accept' => 'application/json'} ).
             will_respond_with(
-              200,
+              status: 200,
               headers: {'Content-Type' => 'application/json;charset=utf-8'},
               body: {name: Pact.like('Johnny')}
             )
@@ -35,10 +35,10 @@ module ZooApp
         before do
           animal_service.given("there is not an alligator named Mary").
             upon_receiving("a request for an alligator").with(
-              :get,
-              '/alligators/Mary',
+              method: :get,
+              path: '/alligators/Mary',
               headers: {'Accept' => 'application/json'} ).
-            will_respond_with(404)
+            will_respond_with(status: 404)
         end
 
         it "returns nil" do
@@ -52,11 +52,11 @@ module ZooApp
         before do
           animal_service.given("an error occurs retrieving an alligator").
             upon_receiving("a request for an alligator").with(
-              :get,
-              '/alligators/Mary',
+              method: :get,
+              path: '/alligators/Mary',
               headers: {'Accept' => 'application/json'}).
             will_respond_with(
-              500,
+              status: 500,
               headers: { 'Content-Type' => 'application/json;charset=utf-8'},
               body: {error: 'Argh!!!'})
         end
