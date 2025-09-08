@@ -2,11 +2,10 @@ source 'https://rubygems.org'
 
 group :development, :test do
   gem 'rspec'
-  gem 'pact'
   if ENV['X_PACT_DEVELOPMENT']
-    gem 'sbmt-pact', path: '../../sbmt-pact'
+    gem 'pact', path: '../pact-ruby'
   else
-    gem 'sbmt-pact', git: 'https://github.com/YOU54F/sbmt-pact.git', branch: 'feat/pact-ruby'
+    gem 'pact', git: 'https://github.com/safdotdev/pact-ruby.git', branch: 'feat/pact-ruby-v2-conditional-install'
   end
   gem 'combustion'
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]  

@@ -4,7 +4,7 @@
   },
   "interactions": [
     {
-      "description": "http: a request for an alligator",
+      "description": "a request for an alligator",
       "pending": false,
       "providerStates": [
         {
@@ -39,7 +39,7 @@
       "type": "Synchronous/HTTP"
     },
     {
-      "description": "http: a request for an alligator",
+      "description": "a request for an alligator",
       "pending": false,
       "providerStates": [
         {
@@ -86,7 +86,7 @@
       "type": "Synchronous/HTTP"
     },
     {
-      "description": "http: a request for an alligator",
+      "description": "a request for an alligator",
       "pending": false,
       "providerStates": [
         {
@@ -110,16 +110,16 @@
     }
   ],
   "metadata": {
+    "pact-ruby-v2": {
+      "pact-ffi": "0.4.28"
+    },
     "pactRust": {
-      "ffi": "0.4.22",
-      "mockserver": "1.2.9",
-      "models": "1.2.3"
+      "ffi": "0.4.28",
+      "mockserver": "1.2.16",
+      "models": "1.3.5"
     },
     "pactSpecification": {
       "version": "4.0"
-    },
-    "sbmt-pact": {
-      "pact-ffi": "0.4.22"
     }
   },
   "provider": {

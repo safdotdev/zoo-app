@@ -2,12 +2,12 @@ require 'rspec/core/rake_task'
 require 'pact_broker/client/tasks'
 
 $LOAD_PATH << './lib'
-
+ENV['PACT_RUBY_V2_ENABLE'] = 'true'
 RSpec::Core::RakeTask.new(:spec)
 
 RSpec::Core::RakeTask.new('pact:v2:spec') do |task|
   task.pattern = 'spec/pact/providers/**/*_spec.rb'
-  task.rspec_opts = ['-t pact']
+  task.rspec_opts = ['-t pact_v2']
 end
 
 RSpec::Core::RakeTask.new('pact:spec') do |task|

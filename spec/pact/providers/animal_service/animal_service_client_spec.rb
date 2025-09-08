@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'sbmt/pact/rspec'
+require 'pact/v2/rspec'
 require 'zoo_app/animal_service_client'
 
 module ZooApp
-  RSpec.describe 'Sbmt::Pact::Providers::Test::HttpClient', :pact do
+  RSpec.describe AnimalServiceClient, :pact_v2 do
     has_http_pact_between 'Zoo App', 'Animal Service'
 
     describe '.find_alligator_by_name' do
