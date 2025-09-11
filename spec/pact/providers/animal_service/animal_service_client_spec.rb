@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pact/v2'
 require 'pact/v2/rspec'
 require 'zoo_app/animal_service_client'
 
@@ -15,8 +16,8 @@ module ZooApp
           super()
             .given('there is an alligator named Mary')
             .upon_receiving('a request for an alligator')
-            .with_request(:get, '/alligators/Mary', headers: { 'Accept' => 'application/json' })
-            .will_respond_with(200, body: { name: match_type_of('Johnny') })
+            .with_request(method: :get, path: '/alligators/Mary', headers: { 'Accept' => 'application/json' })
+            .will_respond_with(status: 200, body: { name: match_type_of('Johnny') })
         end
 
         it 'returns the alligator' do
@@ -33,8 +34,8 @@ module ZooApp
           super()
             .given("there is not an alligator named Mary")
             .upon_receiving('a request for an alligator')
-            .with_request(:get, '/alligators/Mary', headers: { 'Accept' => 'application/json' })
-            .will_respond_with(404)
+            .with_request(method: :get, path: '/alligators/Mary', headers: { 'Accept' => 'application/json' })
+            .will_respond_with(status: 404)
         end
 
         it "returns nil" do
@@ -51,8 +52,8 @@ module ZooApp
           super()
             .given("an error occurs retrieving an alligator")
             .upon_receiving('a request for an alligator')
-            .with_request(:get, '/alligators/Mary', headers: { 'Accept' => 'application/json' })
-            .will_respond_with(500, body: {error: 'Argh!!!'})
+            .with_request(method: :get, path: '/alligators/Mary', headers: { 'Accept' => 'application/json' })
+            .will_respond_with(status: 500, body: {error: 'Argh!!!'})
         end
 
         it "raises an error" do
