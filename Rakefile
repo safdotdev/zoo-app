@@ -5,6 +5,17 @@ $LOAD_PATH << './lib'
 
 RSpec::Core::RakeTask.new(:spec)
 
+
+RSpec::Core::RakeTask.new('pact:spec') do |task|
+  task.pattern = 'spec/service_providers/*_spec.rb'
+  task.rspec_opts = ['-t pact']
+end
+
+RSpec::Core::RakeTask.new('pact:v2:spec') do |task|
+  task.pattern = 'spec/pact/providers/**/*_spec.rb'
+  task.rspec_opts = ['-t pact_v2', '--require pact_v2_helper']
+end
+
 PactBroker::Client::PublicationTask.new do | task |
   require 'zoo_app/version'
   task.consumer_version = ENV['GIT_COMMIT'] || `git rev-parse --verify HEAD`.strip
