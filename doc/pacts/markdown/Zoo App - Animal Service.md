@@ -46,7 +46,9 @@ Given **there is not an alligator named Mary**, upon receiving **a request for a
 ```
 Animal Service will respond with:
 ```json
-{"status":404}
+{
+  "status": 404
+}
 ```
 <a name="a_request_for_an_alligator_given_an_error_occurs_retrieving_an_alligator"></a>
 Given **an error occurs retrieving an alligator**, upon receiving **a request for an alligator** from Zoo App, with
